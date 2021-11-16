@@ -49,20 +49,20 @@
 
 ### Implementation
 
-Metadata server should expose an endpoint with params `address` of the collateral manager and `id` of the position
+Metadata server should expose an endpoint with params `contract_name` of the collateral manager and `id` of the position
 
 ```
-GET /collateral/{address}/position/{id}
+GET /collateral/{contract_name}/position/{id}
 ```
 
 which returns JSON data of the form
 
 ```
 {
-  "description": "Positions issued by the <collateral_type> collateral manager for Overlay V1 Core",
+  "description": "Positions issued by the <contract_name> collateral manager for Overlay V1 Core",
   "external_url": <external_url>,
   "image": <image_url>,
-  "name": "<collateral_type> Collateral Manager",
+  "name": "<contract_name> Collateral Manager",
   "attributes": [
     { "trait_type": "market", "value": "<market>" },
     { "trait_type": "side", "value": "<side>" },
