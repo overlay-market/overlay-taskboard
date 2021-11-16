@@ -45,3 +45,38 @@
 - Example image of metadata displayed on UI for an ETH/USDC market:
 
     ![Position Metadata](../assets/images/erc1155-position-metadata.jpeg)
+
+
+### Implementation
+
+Metadata server should expose an endpoint with params `address` of the collateral manager and `id` of the position
+
+```
+GET /collateral/{address}/position/{id}
+```
+
+which returns JSON data of the form
+
+```
+{
+  "description": "Positions issued by the <collateral_type> collateral manager for Overlay V1 Core",
+  "external_url": <external_url>,
+  "image": <image_url>,
+  "name": "<collateral_type> Collateral Manager",
+  "attributes": [
+    { "trait_type": "market", "value": "<market>" },
+    { "trait_type": "side", "value": "<side>" },
+    { "trait_type": "leverage", "value": "<leverage>" },
+    { "trait_type": "debt", "value": <debt> },
+    { "trait_type": "cost", "value": <cost> },
+    { "trait_type": "maintenance", "value": <maintenance> },
+    { "trait_type": "collateral", "value": <collateral> },
+    { "trait_type": "value", "value": <value> },
+    { "trait_type": "pnl", "value": <pnl> },
+    { "trait_type": "notional", "value": <notional> },
+    { "trait_type": "entry_price", "value": <entry_price> },
+    { "trait_type": "current_price", "value": <current_price> },
+    { "trait_type": "liquidation_price", "value": <liquidation_price> }
+  ],
+}
+```
